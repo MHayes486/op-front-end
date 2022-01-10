@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import Home from "./pages/Home";
+import FindUs from "./pages/FindUs";
+import AboutUs from "./pages/AboutUs";
+import Merch from "./pages/Merch";
+import OurCider from "./pages/OurCider";
+import CiderDetails from "./pages/CiderDetails";
+import Pairings from "./pages/Pairings";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigate replace to="/home" />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/findus" element={<FindUs />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/merch" element={<Merch />} />
+      <Route path="/ourcider" element={<OurCider />} />
+      <Route path="/ourcider/:ciderId" element={<CiderDetails />}></Route>
+      <Route path="/pairings" element={<Pairings />} />
+      {/* Capture page not found: */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
